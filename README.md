@@ -36,3 +36,11 @@ export class UserController {
   }
 }
 ```
+
+## Step 3: Test the API
+
+Once your server is running, you can test the API endpoint by visiting:
+
+```
+http://localhost:3000/api/users
+```
