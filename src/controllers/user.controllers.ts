@@ -1,9 +1,14 @@
 import { Request, Response } from 'express';
+import { Controller, Get, RateLimit } from '../decorators';
 
-export const findAll = async (req: Request, res: Response) => {
-	const { id } = req.query;
-	if (id) {
-		return res.json({ id, name: 'Gjoko Bozhinov', message: 'Not implemented! Just an example.' });
-	}
-	return res.json({ message: 'Get All Users Not implemented! Just an example.' });
-};
+// step 2: create a controller
+// Example usage in a controller
+@Controller('/api/users')
+export class UserController {
+  @Get('/')
+  @RateLimit(100, 60000) // 100 requests per minute
+  public async getUsers(req: Request, res: Response) {
+    console.log('getUsers');
+    res.json({ message: 'getUsers' });
+  }
+}

@@ -1,11 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import * as bodyParser from 'body-parser';
-import routes from './routes/routes';
 import morgan from 'morgan';
 import fs from 'fs';
 import path from 'path';
 import { LOG_LEVEL, PORT } from './config';
+import { registerRoutes } from './decorators';
+import { UserController } from './controllers/user.controllers';
 
 dotenv.config();
 
@@ -21,7 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use('/', routes);
+// step 1: register routes
+registerRoutes(app, [UserController]);
 
 app.listen(PORT, () => {
 	console.log(`Server running at http://localhost:${PORT}`);
