@@ -34,8 +34,21 @@ export class UserController {
     console.log('getUsers');
     res.json({ message: 'getUsers' });
   }
+
+  @Get('/:id')
+  public async getUserById(req: Request, res: Response) {
+    console.log('getUserById', req.params.id);
+    res.json({ message: 'getUserById', id: req.params.id });
+  }
+
+  @Post('/')
+  public async createUser(req: Request, res: Response) {
+    console.log('createUser', req.body);
+    res.json({ message: 'createUser', body: req.body });
+  }
 }
 ```
+
 
 ## Step 3: Test the API
 
