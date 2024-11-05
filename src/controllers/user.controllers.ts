@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { Controller, Get, Post, RateLimit } from '../decorators';
 
 // step 2: create a controller
-// Example usage in a controller
 @Controller('/api/users')
 export class UserController {
   @Get('/')
