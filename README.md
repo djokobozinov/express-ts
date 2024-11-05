@@ -1,4 +1,19 @@
-Expressjs + TypeScript starter template
+# Expressjs + TypeScript + Decorators 
+
+
+> **Note**: This is my experimental side project meant for learning and demonstration purposes. It is not production-ready and should not be used in production environments without significant hardening, testing, and security reviews.
+
+## Contributing
+
+Feel free to contribute, fork, or use this project in any way you'd like! This is an open experiment and learning resource. You can:
+
+- Fork the repository and make it your own
+- Submit pull requests with improvements
+- Use it as a reference for learning decorators in TypeScript
+- Build upon it for your own projects
+
+No restrictions - have fun exploring and experimenting!
+
 
 # Getting started
 ```bash
@@ -9,6 +24,7 @@ npm start
 # How it Works
 
 This project demonstrates a TypeScript-based Express.js application with decorators for clean and declarative route handling.
+
 
 ## Step 1: Register Routes
 
