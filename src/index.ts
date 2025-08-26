@@ -1,14 +1,10 @@
 import express from 'express';
-import dotenv from 'dotenv';
-import * as bodyParser from 'body-parser';
 import morgan from 'morgan';
 import fs from 'fs';
 import path from 'path';
 import { LOG_LEVEL, PORT } from './config';
 import { registerRoutes } from './decorators';
 import { UserController } from './controllers/user.controllers';
-
-dotenv.config();
 
 const app = express();
 
@@ -18,9 +14,9 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),
 app.use(morgan(LOG_LEVEL, { stream: accessLogStream }));
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 // parse application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
 // step 1: register routes
 registerRoutes(app, [UserController]);

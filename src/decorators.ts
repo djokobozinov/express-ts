@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, Express } from 'express';
 import "reflect-metadata";
 
 // Type for HTTP methods
@@ -94,7 +94,7 @@ export function RateLimit(limit: number, windowMs: number) {
   };
 }
 
-export function registerRoutes(app: any, controllers: any[]) {
+export function registerRoutes(app: Express, controllers: any[]) {
   controllers.forEach(ControllerClass => {
     const controllerInstance = new ControllerClass();
     const prefix = controllerInstance.prefix || '';
